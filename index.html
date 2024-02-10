@@ -1,20 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-</head>
+ <meta charset="UTF-8"></head>
+<style>
+ html,body,a,span{background-color:#000000;color:#ffffff;font-size:85px;text-decoration:none;font-family:Arial;margin:0;padding:0}
+ span{font-size:110px}
+ a:hover{text-decoration:underline}
+ table,th,td{height:99%;width:670px}
+</style>
 <body>
-<pre>
-Hello, 
-
-content will be here later, 
-
-e-mail: sec urity(at/'[ this do_ma in<
-
-have a secure day, 
-
-Thanks for visiting!
-</pre>
-
+<table align=center>
+ <tr vertical-align=middle>
+  <th colspan="2">
+   <span id="dateOutput">
+   </span>
+   <br>
+   <span id="weekOutput">
+   </span>
+   <br>
+   <span id="dayOutput">
+   </span>
+   <br>
+   <font size=85>
+   <a href="https://mail.google.com/">gml</a> / 
+   <a href="https://drive.google.com/drive/starred">drv</a> / 
+   <a href="https://www.timeanddate.com/date/timeduration.html">dut</a> / 
+   <a href="https://dateful.com/time-zone-converter">tzc</a>
+   <br>
+   <a href="https://account.proton.me/mail">prt</a> / 
+   <a href="https://chat.openai.com/?model=gpt-4">gpt</a> / 
+   <a href="https://news.ycombinator.com/">yco</a> / 
+   <a href="http://jodies.de/ipcalc">nec</a>
+   <br>
+  </font>
+  </th>
+ </tr>
+ <tr>
+   <td>
+    e-mail: sec urity(at/'[ this do_ma in
+   <td style="width:100px">
+    2024 feb 10
+   </td>
+   </td>
+  </tr>
+ <tr>
+  <td>
+   TODO
+  <td style="width:100px">
+   xxxx xxx xx
+  </td>
+  </td>
+ </tr>
+</table>
+<script>
+ let date=new Date()
+ let isoDate=date.toISOString().split('T')[0]
+ let isoWeek=getISOWeek(date)
+ let days=['vasárnap','hétfő','kedd','szerda','csütörtök','péntek','szombat']
+ let currentDay=days[date.getDay()]
+ document.getElementById('dateOutput').innerHTML=isoDate
+ document.getElementById('weekOutput').innerHTML=isoWeek+". hét"
+ document.getElementById('dayOutput').innerHTML=currentDay
+ function getISOWeek(d) {
+ d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))
+ d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7))
+ var yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1))
+ var weekNo=Math.ceil((((d-yearStart)/86400000)+1)/7)
+ return weekNo}
+</script>
 </body>
 </html>
