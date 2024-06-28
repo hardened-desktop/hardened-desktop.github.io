@@ -2,8 +2,9 @@
 <head>
  <meta charset=UTF-8></head>
 <style>
- html,body,a,span{background-color:#000000;color:#ffffff;font-size:75px;text-decoration:none;font-family:Arial;margin:0;padding:0}
- span{font-size:100px}
+ html,body,a,span{background-color:#000000;color:#ffffff;font-size:70px;text-decoration:none;font-family:Arial;margin:0;padding:0}
+ span{font-size:80px}
+ input{width:700px}
  a:hover{text-decoration:underline}
  table,th,td{height:99%;width:970}
 </style>
@@ -11,16 +12,19 @@
 <table align=center>
  <tr valign=middle>
   <th colspan=2>
-   <span id=dateOutput>
-   </span>
+   <span id=current-time></span>
    <br>
-   <span id=weekOutput>
-   </span>
+   <span id=dateOutput></span>
+   <br>
+   <span id=weekOutput></span>
    &nbsp; 
-   <span id=dayOutput>
-   </span>
+   <span id=dayOutput></span>
    <br>
-   <font size=75>
+   <br>
+    <form action=https://kagi.com/search method=get>
+    <input type=text id=query name=q required autofocus>
+    </form>
+   <font size=70>
    <a href=https://mail.google.com>gml</a> / 
    <a href=https://drive.google.com/drive/starred>drv</a> / 
    <a href=https://account.proton.me/mail>prt</a> / 
@@ -70,6 +74,15 @@
  var yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1))
  var weekNo=Math.ceil((((d-yearStart)/86400000)+1)/7)
  return weekNo}
+</script>
+<script>
+function updateTime() {
+const now = new Date()
+const currentTime = now.toLocaleTimeString()
+const currentSeconds = Math.floor(now.getTime() / 1000)
+document.getElementById('current-time').textContent = `${currentTime}`}
+updateTime()
+setInterval(updateTime, 1000)
 </script>
 </body>
 </html>
