@@ -16,7 +16,7 @@
    <br>
    <span id=weekOutput>
    </span>
-   <br>
+   &nbsp; 
    <span id=dayOutput>
    </span>
    <br>
@@ -62,7 +62,7 @@
  let days=['vasárnap','hétfő','kedd','szerda','csütörtök','péntek','szombat']
  let currentDay=days[date.getDay()]
  document.getElementById('dateOutput').innerHTML=isoDate
- document.getElementById('weekOutput').innerHTML=isoWeek+". hét"
+ document.getElementById('weekOutput').innerHTML=isoWeek+". hét,"
  document.getElementById('dayOutput').innerHTML=currentDay
  function getISOWeek(d) {
  d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))
