@@ -78,8 +78,8 @@
 <script>
 function updateTime() {
 const now = new Date()
-const currentTime = now.toLocaleTimeString()
-const currentSeconds = Math.floor(now.getTime() / 1000)
+const options = { hour12: false }
+const currentTime = now.toLocaleTimeString('en-GB', options)
 document.getElementById('current-time').textContent = `${currentTime}`}
 updateTime()
 setInterval(updateTime, 1000)
