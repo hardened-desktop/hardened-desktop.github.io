@@ -2,13 +2,13 @@
 <head>
  <meta charset=UTF-8></head>
 <style>
- html,body,a,span{background-color:#000000;color:#ffffff;font-size:70;text-decoration:none;font-family:Arial;margin:0;padding:0}
- span{font-size:80}
+ html,body,a,span{background-color:#000000;color:#ffffff;font-size:60;text-decoration:none;font-family:Arial;margin:0;padding:0}
+ span{font-size:70}
  a:hover{text-decoration:underline}
  table,th,td{height:99%;width:970}
 </style>
 <body>
-<table align=center>
+<table align=center border=1>
  <tr valign=middle>
   <th colspan=2>
    <span id=current-time></span>
@@ -20,7 +20,11 @@
    <span id=dayOutput></span>
    <br>
    <br>
-   <font size=70>
+   <form action=https://kagi.com/search method=get>
+   <input type=text id=query name=q required autofocus style=width:600px>
+   <input type=hidden name=l value=0>
+   </form>
+   <font size=60>
    <a href=https://chat.openai.com/?model=gpt-4o>gpt</a> / 
    <a href=https://account.proton.me/mail>prt</a> / 
    <a href=https://calendar.proton.me/u/14>pcal</a> / 
