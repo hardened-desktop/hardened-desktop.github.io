@@ -2,7 +2,7 @@
 # main idempotent script version at /root/ on "p", last update 2024 dec 05
 # dd the newest stable OpenBSD IMG install to a USB flashdrive
 # install fully OFFLINE, no network (is the set partition mounted? "no")
-# and install without the games set "-g*" and without the single cpu bsd set "-bsd"
+# and install without the "game" set "-g*" and without the single cpu "bsd" set "-bsd"
 # and FDE (full disc encryption) on an SSD
 
 ################################
