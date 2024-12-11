@@ -1,132 +1,41 @@
 <html>
 <head>
- <meta charset=UTF-8></head>
+<meta charset=UTF-8></head>
 <style>
- html,body,span{background-color:#000000;color:#ffffff;font-size:60;text-decoration:none;font-family:Arial;margin:0;padding:0}
- a{background-color:#000000;color:#ffffff;text-decoration:none;font-family:Arial;}
- span{font-size:60}
- a:hover{text-decoration:underline}
- table,th,td{height:99%;width:970}
- input{font-size:50}
+html,body,span{background-color:#000000;color:#ffffff;font-size:35;text-decoration:none;font-family:Arial}
+a{background-color:#000000;color:#ffffff;text-decoration:none;font-family:Arial;}
+a:hover{text-decoration:underline}
 </style>
 <body>
-<table align=center>
- <tr valign=middle>
-  <th colspan=2>
-   <span id=current-time></span>
-   <br>
-   <span id=dateOutput></span>
-   <br>
-   <span id=weekOutput></span>
-   &nbsp; 
-   <span id=dayOutput></span>
-   <br>
-   <font size=60>
-   <a href='https://chat.openai.com/?model=gpt-4o'>gpt</a> / 
-   <a href=https://account.proton.me/mail>prt</a> / 
-   <a href=https://calendar.proton.me/u/14>pcal</a> / 
-   <a href=https://www.timeanddate.com/date/timeduration.html>dut</a> / 
-   <a href=https://dateful.com/time-zone-converter>tzc</a> / 
-   <a href=http://jodies.de/ipcalc>nec</a>
-   <br>
-   <a href=https://lobste.rs>lrs</a> / 
-   <a href=https://news.ycombinator.com>yco</a> / 
-   <a href=https://slashdot.org>sld</a> / 
-   <a href=https://www.phoronix.com>pho</a> / 
-   <a href=https://www.reddit.com>red</a> / 
-   <a href=https://hup.hu/activity>hup</a>
-   <br>
-   <a href=https://mail.google.com>gml</a> / 
-   <a href=https://drive.google.com/drive/starred>drv</a> / 
-   <a href='https://marc.info/?a=146809448200002&r=1&w=2'>the</a> / 
-   <a href=https://risky.biz>ris</a> / 
-   <a href=https://phrack.org>phr</a> / 
-   <a href=https://packetstormsecurity.com/news>pac</a>
-   <br>
-  </font>
-  </th>
- </tr>
- <tr align=right>
-   <td>
-   sec u rity(a t/'[ this do_ma in
-   <td align=left>
-   &nbsp2024 feb 10
-   </td>
-   </td>
-  </tr>
- <tr align=right>
-  <td>
-  security_principles.txt
-  <td align=left>
-  &nbspxxxx xxx xx
-  </td>
-  </td>
- </tr>
- <tr>
-  <td align=right>
-  plain_ubuntu_desktop.sh
-  <td align=left>
-  &nbspxxxx xxx xx
-  </td>
-  </td>
- </tr>
- <tr>
-  <td align=right>
-  <a href=https://raw.githubusercontent.com/hardened-desktop/hardened-desktop.github.io/refs/heads/main/hardened_openbsd_desktop.sh>hardened_openbsd_desktop.sh</a>
-  <td align=left>
-  &nbsp2024 dec 03
-  </td>
-  </td>
- </tr>
- <tr>
-  <td align=right>
-  plain_android.txt
-  <td align=left>
-  &nbspxxxx xxx xx
-  </td>
-  </td>
- </tr>
- <tr>
-  <td align=right>
-  security_bug_bounty.txt
-  <td align=left>
-  &nbspxxxx xxx xx
-  </td>
-  </td>
- </tr>
-  <tr>
-  <td align=right>
-  curriculum_vitamin.txt
-  <td align=left>
-  &nbspxxxx xxx xx
-  </td>
-  </td>
- </tr>
-</table>
-<script>
- let date=new Date()
- let isoDate=date.toISOString().split('T')[0]
- let isoWeek=getISOWeek(date)
- let days=['vasárnap','hétfő','kedd','szerda','csütörtök','péntek','szombat']
- let currentDay=days[date.getDay()]
- document.getElementById('dateOutput').innerHTML=isoDate
- document.getElementById('weekOutput').innerHTML=isoWeek+". hét,"
- document.getElementById('dayOutput').innerHTML=currentDay
- function getISOWeek(d) {
- d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))
- d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7))
- var yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1))
- var weekNo=Math.ceil((((d-yearStart)/86400000)+1)/7)
- return weekNo}
-</script>
-<script>
-function updateTime() {
-const now = new Date()
-const options = { hour12: false }
-const currentTime = now.toLocaleTimeString('en-GB', options)
-document.getElementById('current-time').textContent = `${currentTime}`}
-updateTime()
-setInterval(updateTime, 1000)
-</script>
+0) <br>
+<a href='https://chat.openai.com/?model=gpt-4o'>gpt</a> /
+<a href=https://account.proton.me/mail>prt</a> /
+<a href=https://calendar.proton.me/u/14>pcal</a> /
+<a href=https://www.timeanddate.com/date/timeduration.html>dut</a> /
+<a href=https://dateful.com/time-zone-converter>tzc</a> /
+<a href=http://jodies.de/ipcalc>nec</a>
+<br>
+<a href=https://lobste.rs>lrs</a> /
+<a href=https://news.ycombinator.com>yco</a> /
+<a href=https://slashdot.org>sld</a> /
+<a href=https://www.phoronix.com>pho</a> /
+<a href=https://www.reddit.com>red</a> /
+<a href=https://hup.hu/activity>hup</a>
+<br>
+<a href=https://mail.google.com>gml</a> /
+<a href=https://drive.google.com/drive/starred>drv</a> /
+<a href='https://marc.info/?a=146809448200002&r=1&w=2'>the</a> /
+<a href=https://risky.biz>ris</a> /
+<a href=https://phrack.org>phr</a> /
+<a href=https://packetstormsecurity.com/news>pac</a>
+<br>
+1) sec u rity(a t/'[ this do_ma in (2024 feb 10)<br>
+2) security_principles.txt<br>
+3) <a href=https://raw.githubusercontent.com/hardened-desktop/hardened-desktop.github.io/refs/heads/main/hardened_openbsd_desktop.sh>hardened_openbsd_desktop.sh</a> (2024 dec 11)<br>
+4) security_bug_bounty.txt<br>
+5) plain_ubuntu_desktop.sh<br>
+6) plain_android.txt<br>
+7) curriculum_vitamin.txt<br>
+8) linux_bsd_cheatsheet.txt<br>
 </body>
 </html>
