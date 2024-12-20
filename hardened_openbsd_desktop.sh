@@ -1,18 +1,21 @@
 #!/bin/ksh
-# 2024 dec 11
+# last update: 2024 dec 20
 # https://hardened-desktop.com/
-# this script is to harden an OpenBSD install for GUI desktop use
+# to harden an OpenBSD install for general GUI desktop use
+# why? to inspire people for the possibilities!
 
 
 ################################
-# still INPRG, but usable
+# still INPRG, started at the end of 2024, 
+# but always in a usable state
 ################################
 
 
 ################################
 # install hints
 
-	# dd the newest stable OpenBSD ".img" install to a USB flash drive
+	# dd the newest stable OpenBSD ".img" to a USB flash drive
+	# https://www.openbsd.org/faq/faq4.html#Download
 
 	# install fully OFFLINE, no network to be more secure
 
@@ -20,7 +23,7 @@
 	# FDE (full disc encryption) on an SSD
 	# delete and re-create the "k" partition "/home" to max size
 	# is the set partition mounted? "no"
-	# and install without the game/bsd/comp set: "-g; -bsd; -comp*"
+	# install without the game/bsd/comp set: "-g; -bsd; -comp*"
 
 	# clean reinstall (backup/restore data) with every stable release
 	# which happens in every May and November, in every 6 months
@@ -31,9 +34,8 @@
 	# MANUALLY you have to configure : 
 
 		# Firefox (uBlock Origin, strict mode, etc. +don't use "Google Search")
-		# MATE panels, bookmarks
+		# MATE panels, MATE bookmarks
 		# LibreOffice, its language pack
-
 		# display(s) and resolution with xrandr below
 		# variables in below here
 
@@ -41,13 +43,13 @@
 	# OpenBSD due to it has a much better security history anyways. 
 	# https://www.openbsd.org/
 	# https://en.wikipedia.org/wiki/OpenBSD
-	# DON'T FORGET TO DONATE: https://www.openbsdfoundation.org/
+	# DONATE: https://www.openbsdfoundation.org/
 
 	# choosing MATE due to that for a desktop, we need a usable GUI,
-	# but not yet a bloated one and with start menu
+	# but not yet a bloated one AND with classic start menu style
 	# https://mate-desktop.org/
 	# https://en.wikipedia.org/wiki/MATE_(desktop_environment)
-	# DON'T FORGET TO DONATE: https://mate-desktop.org/donate/
+	# DONATE: https://mate-desktop.org/donate/
 
 ################################
 # variables, change it to your needs
@@ -94,7 +96,7 @@ exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session' > "/home/${LO
 # TODO: if binary already there, don't check with pkg_add
 
 ################################
-# install basic ports
+# install extra ports, more risk
 
 /usr/sbin/pkg_add \
 	firefox-esr \
@@ -102,6 +104,9 @@ exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session' > "/home/${LO
 	p7zip \
 	$(/usr/sbin/pkg_info -Q keepassxc|grep ^keepassxc|egrep -v 'brow|yubi'|head -1|cut -d ' ' -f1) \
 	$(/usr/sbin/pkg_info -Q evince|grep ^evince|grep light|head -1|cut -d ' ' -f1) \
+	$(/usr/sbin/pkg_info -Q ghostscript|grep -- '^ghostscript-[0-9]'|grep -v gtk|sort -r|head -1|cut -d ' ' -f1) \
+	$(/usr/sbin/pkg_info -Q gimp|grep -- '^gimp-[0-9]'|sort -r|head -1|cut -d ' ' -f1) \
+	eom \
 	sshfs-fuse \
 	zenity \
 	ImageMagick \
@@ -119,14 +124,14 @@ exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session' > "/home/${LO
 
 	/usr/sbin/pkg_add -u 
 
-# TODO: if last check was less than 12h ago, don't run pkg_add -u 
+# TODO: if last check was less than 6h ago, don't run pkg_add -u 
 
 ################################
 # update erratas: https://www.openbsd.org/errata.html
 
 	/usr/sbin/syspatch
 
-# TODO: if last check was less than 12h ago, don't run syspatch 
+# TODO: if last check was less than 6h ago, don't run syspatch 
 
 ################################
 # update firmware: https://man.openbsd.org/fw_update
@@ -156,7 +161,7 @@ exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session' > "/home/${LO
 
 	# remove wxallowed: https://man.openbsd.org/mount#wxallowed
 	sed -i 's/wxallowed//g; s/,,/,/g' /etc/fstab
- 
+
 ################################
 # sync to disk
 
